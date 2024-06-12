@@ -52,5 +52,24 @@
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
     </form>
+    <button onclick="document.getElementById('create-cube-form').style.display='block'">Create Cube</button>
+
+    <!-- Create cube form -->
+    <div id="create-cube-form" style="display:none;">
+        <form action="{{ url_for('draft.create_cube') }}" method="post" enctype="multipart/form-data">
+            <label for="cube_name">Cube Name:</label>
+            <input type="text" id="cube_name" name="cube_name" required><br>
+
+            <label for="cube_description">Cube Description:</label>
+            <textarea id="cube_description" name="cube_description"></textarea><br>
+
+            <label for="cube_file">Upload Cube File:</label>
+            <input type="file" id="cube_file" name="cube_file" accept=".txt"><br>
+
+            <label for="cube_text">Or Enter Cube Cards:</label>
+            <textarea id="cube_text" name="cube_text"></textarea><br>
+
+            <button type="submit">Save Cube</button>
+    </form>
 </div>
 {% endblock content %}
