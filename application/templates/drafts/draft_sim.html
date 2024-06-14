@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Draft Simulator</h1>
+<form action="{{ url_for('draft.active_draft') }}" method="post">
+    <label for="packs">Number of Packs:</label>
+    <select name="packs" id="packs">
+        {% for i in range(3, 7) %}
+            <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="cards_per_pack">Number of Cards per Pack:</label>
+    <select name="cards_per_pack" id="cards_per_pack">
+        {% for i in range(10, 21) %}
+            <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="players">Number of Players:</label>
+    <select name="players" id="players">
+        {% for i in range(2, 9) %}
+            <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="cube">Cube to Draft:</label>
+    <select name="cube" id="cube">
+        <!-- Assuming cube names will be loaded from a database later -->
+        <option value="cube1">Cube 1</option>
+        <option value="cube2">Cube 2</option>
+        <option value="cube3">Cube 3</option>
+    </select>
+    <br>
+
+    <button type="submit">Start Draft</button>
+</form>
+{% endblock %}
