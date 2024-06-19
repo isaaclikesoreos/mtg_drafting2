@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Active Draft</h1>
+
+<h2>Pack 1</h2>
+<div class="pack">
+    {% for card in first_pack %}
+        {% if loop.index0 % 5 == 0 %}
+            <div class="row">
+        {% endif %}
+
+        <div class="card">
+            {{ card }}
+        </div>
+
+        {% if loop.index0 % 5 == 4 or loop.last %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<style>
+.pack {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row {
+    display: flex;
+    width: 100%;
+}
+.card {
+    width: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+</style>
+
+{% endblock %}
